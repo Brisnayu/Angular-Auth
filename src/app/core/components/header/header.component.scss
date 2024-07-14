@@ -1,0 +1,11 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+
+    img {
+        width: 2rem;
+        object-fit: contain;
+        cursor: pointer;
+    }
+}
