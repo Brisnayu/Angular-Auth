@@ -1,0 +1,8 @@
+<header>
+    <img src="./assets/icons/user-icon.png" alt="icon user" />
+
+    <ng-container *ngIf="userSessionStorage">
+        <img (click)="clickOut()" src="./assets/icons/out-icon.png" alt="icon out" />
+    </ng-container>
+
+</header>
