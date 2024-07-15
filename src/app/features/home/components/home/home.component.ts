@@ -1,6 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { SessionStorageService } from '../../../../core/services/sessionStorage/session-storage.service';
 import { GetsService } from '../../../../core/services/gets/gets.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,65 +9,24 @@ import { GetsService } from '../../../../core/services/gets/gets.service';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit {
+  private router = inject(Router);
   private valueUser = inject(SessionStorageService);
-  private getsServices = inject(GetsService);
-  private token: string | null = '';
 
   homeUser: string | null = '';
-  responseGetAdmins!: unknown;
-  responseGetAdmin!: unknown;
-  responseGetEchoping!: unknown;
-  responseGetEchoUser!: unknown;
-  responseGetCustomers!: unknown;
-  responseGetCustomersById!: unknown;
-
 
   ngOnInit(): void {
     this.homeUser = this.valueUser.getItem('user');
-    this.token = this.valueUser.getItem('token');
 
     console.log(this.homeUser)
   }
 
-  getAdmins() {
-    this.getsServices.getAdmins(this.token).subscribe(response => {
-      console.log(response),
-      this.responseGetAdmins = response
-    });
+  goToAdmin(): void {
+    this.router.navigate(['home/admin']);
   }
 
-  getAdminById(id: string) {
-    this.getsServices.getAdminById(this.token, id).subscribe(response => {
-      console.log(response),
-      this.responseGetAdmin = response
-    });
+  goToCustomers(): void {
+    this.router.navigate(['home/customer']);
   }
 
-  getLoginEchoping() {
-    this.getsServices.getLoginEchoping(this.token).subscribe(response => {
-      console.log(response),
-      this.responseGetEchoping = response
-    });
-  }
 
-  getLoginEchoUser() {
-    this.getsServices.getLoginEchoUser(this.token).subscribe(response => {
-      console.log(response),
-      this.responseGetEchoUser = response
-    });
-  }
-
-  getCustomers() {
-    this.getsServices.getCustomers(this.token).subscribe(response => {
-      console.log(response),
-      this.responseGetCustomers = response
-    });
-  }
-
-  getCustomersById(id: string) {
-    this.getsServices.getCustomersById(this.token, id).subscribe(response => {
-      console.log(response),
-      this.responseGetCustomersById = response
-    });
-  }
 }

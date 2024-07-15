@@ -1,0 +1,12 @@
+<main>
+    <div class="container-links">
+       <h3 (click)="goToCustomers()">Customers</h3> 
+    </div>
+
+    <app-card-principal 
+        [titlePage]="'admin page'"
+        [arrayInfo]="responseGetAdmins"
+        (buttonClicked)="navigateToAdminDetail($event)"
+    />
+
+</main>
