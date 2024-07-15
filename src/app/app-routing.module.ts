@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { authGuard } from './core/guards/auth.guard';
+import { ErrorComponent } from './core/components/error/error.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -10,6 +11,14 @@ const routes: Routes = [
   },
   {
     path: 'login', loadChildren: () => import('./features/auth/auth.module').then(mod => mod.AuthModule)
+  },
+  {
+    path: 'error', 
+    component: ErrorComponent
+  },
+  {
+    path: '**',
+    redirectTo: '/error'
   }
 ];
 

@@ -1,40 +1,45 @@
 <main>
     <h2>Username: {{ homeUser | titlecase }}</h2>
 
-    <section class="container-information">
-
-        <ng-container *ngIf="homeUser === 'admin'">
-            <div >
-                <button (click)="getAdmins()">VER ADMINS</button>
-                <p>{{ responseGetAdmins }}</p>
-            </div>
-
-            <div>
-                <button (click)="getAdminById('1')">VER ADMIN BY ID</button>
-                <p>{{ responseGetAdmin }}</p>
-            </div>
-        </ng-container>
-
-        <div>
-            <button (click)="getLoginEchoping()">VER ECHOPING</button>
-            <p>{{ responseGetEchoping }}</p>
-        </div>
-
-        <div>
-            <button (click)="getLoginEchoUser()">VER ECHOUSER</button>
-            <p>{{ responseGetEchoUser }}</p>
-        </div>
-
-        <div>
-            <button (click)="getCustomers()">VER CUSTOMERS</button>
-            <p>{{ responseGetCustomers }}</p>
-        </div>
-
-        <div>
-            <button (click)="getCustomersById('1')">VER CUSTOMERS BY ID</button>
-            <p>{{ responseGetCustomersById }}</p>
-        </div>
-
-    </section>
+    <div>
+        <h3 (click)="goToAdmin()">Admins</h3>
+        <h3 (click)="goToCustomers()">Customer</h3>
+    </div>
 
 </main>
+
+<!-- <section class="container-information">
+
+    <ng-container *ngIf="homeUser === 'admin'">
+        <div>
+            <button (click)="getAdmins()">VER ADMINS</button>
+            <p>{{ responseGetAdmins }}</p>
+        </div>
+
+        <div>
+            <button (click)="getAdminById('1')">VER ADMIN BY ID</button>
+            <p>{{ responseGetAdmin }}</p>
+        </div>
+    </ng-container>
+
+    <div>
+        <button (click)="getLoginEchoping()">VER ECHOPING</button>
+        <p>{{ responseGetEchoping }}</p>
+    </div>
+
+    <div>
+        <button (click)="getLoginEchoUser()">VER ECHOUSER</button>
+        <p>{{ responseGetEchoUser }}</p>
+    </div>
+
+    <div>
+        <button (click)="getCustomers()">VER CUSTOMERS</button>
+        <p>{{ responseGetCustomers }}</p>
+    </div>
+
+    <div>
+        <button (click)="getCustomersById('1')">VER CUSTOMERS BY ID</button>
+        <p>{{ responseGetCustomersById }}</p>
+    </div>
+
+</section> -->
