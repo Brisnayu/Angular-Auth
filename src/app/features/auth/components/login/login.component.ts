@@ -25,17 +25,14 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     const formData = this.dataForm.value;
-    console.log('INFO FORMULARIO', formData);
+    // console.log('INFO FORMULARIO', formData);
 
     this.onLogin(formData.user, formData.password);
   }
 
   onLogin(user: string, password: string): void {
-    this.authService.verifyUser(user, password).subscribe(
-      response => {
-        console.log('User verified', response);
-        console.log(typeof response)
-
+    this.authService.verifyUser(user, password).subscribe({
+      next: (response) => {
         this.sessionStorageService.setItem('user', user);
         this.sessionStorageService.setItem('password', password);
         this.sessionStorageService.setItem('token', response);
@@ -43,12 +40,12 @@ export class LoginComponent implements OnInit {
         alert('DATOS GUARDADOS EN EL SESSION STORAGE');
 
         this.router.navigate(['home']);
-      },
-      error => {
+      }, error: (error) => {
         console.error('Verification failed', error);
         alert('Error en la autenticación');
         window.location.reload()
       }
-    );
+    })
+
   }
 }

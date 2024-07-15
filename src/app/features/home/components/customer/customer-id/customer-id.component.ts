@@ -25,12 +25,12 @@ export class CustomerIdComponent {
   getIdAdmin() {
     this.route.paramMap.subscribe((params) => {
       this.customerId = params.get('id')!;
-      this.getAdminById(this.customerId);
+      this.getCustomersById(this.customerId);
     });
   }
 
-  getAdminById(id: string) {
-    this.getsServices.getAdminById(this.token, id).subscribe(response => {
+  getCustomersById(id: string) {
+    this.getsServices.getCustomersById(id).subscribe(response => {
       console.log(response),
       this.responseGetCustomer = response
     });
