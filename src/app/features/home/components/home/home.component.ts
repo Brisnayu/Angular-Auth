@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.homeUser = this.valueUser.getItem('user');
 
-    console.log(this.homeUser)
+    // console.log(this.homeUser)
   }
 
   goToAdmin(): void {

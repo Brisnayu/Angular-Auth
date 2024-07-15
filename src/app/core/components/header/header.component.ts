@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscription = this.sessionStorage.getUser().subscribe(user => {
       this.userSessionStorage = user;
-      console.log(this.userSessionStorage);
+      // console.log(this.userSessionStorage);
     });
   }
 

@@ -1,6 +1,8 @@
-<h2>{{ titlePage | uppercase }}</h2>
+<main>
+    <h2>{{ titlePage | uppercase }}</h2>
 
-<div *ngFor="let item of arrayInfo" class="container-info">
-    <p>{{ item | titlecase }}</p>
-    <button (click)="onButtonClick(item.slice(item.indexOf('-') + 1))">{{ item | extractNumber }}</button>
-</div>
+    <div *ngFor="let item of arrayInfo" class="container-info">
+        <p>{{ item | titlecase }}</p>
+        <button (click)="onButtonClick(item.slice(item.indexOf('-') + 1))">{{ item | extractNumber }}</button>
+    </div>
+</main>

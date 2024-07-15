@@ -22,7 +22,7 @@ export class CustomerComponent implements OnInit {
   }
 
   getCustomers(): void {
-    this.getsServices.getCustomers(this.token).subscribe(response => {
+    this.getsServices.getCustomers().subscribe(response => {
       console.log(response),
       this.responseGetCustomers = response
     });

@@ -30,7 +30,7 @@ export class AdminIdComponent implements OnInit {
   }
 
   getAdminById(id: string) {
-    this.getsServices.getAdminById(this.token, id).subscribe(response => {
+    this.getsServices.getAdminById(id).subscribe(response => {
       console.log(response),
       this.responseGetAdmin = response
     });
