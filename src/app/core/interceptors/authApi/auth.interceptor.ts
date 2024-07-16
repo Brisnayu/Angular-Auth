@@ -7,11 +7,14 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const token = tokenSession.getItem('token'); 
 
   if (token) {
-    req = req.clone({
+    const request = req.clone({
       setHeaders: {
         Authorization: `Bearer ${token}`
       }
     });
+    return next(request)
+  } else  {
+    console.log('Token not found')
   }
 
   return next(req);
