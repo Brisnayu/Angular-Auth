@@ -6,6 +6,8 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const tokenSession = inject(SessionStorageService);
   const token = tokenSession.getItem('token'); 
 
+  console.log("Desde el auth", token)
+
   if (token) {
     const request = req.clone({
       setHeaders: {

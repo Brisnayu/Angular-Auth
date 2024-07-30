@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   private router = inject(Router);
   private sessionStorageService = inject(SessionStorageService);
   private authService = inject(AuthService);
-  dataForm!: FormGroup;
+  public dataForm!: FormGroup;
 
   ngOnInit(): void {
     this.dataForm = this.infoLoginApi.group({
